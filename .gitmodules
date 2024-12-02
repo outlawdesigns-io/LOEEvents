@@ -1,0 +1,3 @@
+[submodule "LOEServer"]
+	path = LOEServer
+	url = https://github.com/outlawdesigns-io/LOEServer
