@@ -8,6 +8,6 @@ RUN apt-get update && apt-get install -y \
 
 # Copy Composer from the official Composer image
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-RUN php composer.phar require voryx/thruway
-RUN php composer.phar require thruway/pawl-transport
+RUN php /usr/local/bin/composer require voryx/thruway
+RUN php /usr/local/bin/composer require thruway/pawl-transport
 ADD ./ /var/www/html
