@@ -10,7 +10,7 @@ function _onConnect(ClientSession $session){
   echo "Connected to WAMP router...\n";
   $onFileDownloaded = function($args){
     print_r($args);
-  }
+  };
   $session->subscribe('io.outlawdesigns.webaccess.fileDownloaded',$onFileDownloaded);
 }
 
