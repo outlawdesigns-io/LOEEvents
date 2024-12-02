@@ -15,7 +15,7 @@ function _onConnect(ClientSession $session){
 }
 
 $realm = 'realm1';
-$wampUrl = 'wss://api.outlawdesigns.io:9700';
+$wampUrl = 'wss://api.outlawdesigns.io:9700/ws';
 
 $wampClient = new Client($realm);
 $wampClient->addTransportProvider(new PawlTransportProvider($wampUrl));
