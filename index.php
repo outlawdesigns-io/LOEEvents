@@ -22,4 +22,4 @@ $wampClient->addTransportProvider(new PawlTransportProvider($wampUrl));
 
 $wampClient->on('open','_onConnect');
 
-$client->start();
+$wampClient->start();
