@@ -6,10 +6,9 @@ require_once __DIR__ . '/LOEServer/Factory.php';
 use Thruway\ClientSession;
 use Thruway\Peer\Client;
 use Thruway\Transport\PawlTransportProvider;
-use LOE;
 
 function _buildSearchStr($query){
-  return Base::WEBROOT . "/LOE" . preg_replace("/%20/"," ",$query);
+  return \LOE\Base::WEBROOT . "/LOE" . preg_replace("/%20/"," ",$query);
 }
 
 function _onConnect(ClientSession $session){
@@ -20,7 +19,7 @@ function _onConnect(ClientSession $session){
     $targetModel = null;
     foreach($models as $model){
       $searchStr = _buildSearchStr($requestObj->query);
-      $files = Factory::search($model->label,'file_path',$searchStr);
+      $files = \LOE\Factory::search($model->label,'file_path',$searchStr);
       if(!count($files)){
         continue;
       }else if(count($files) > 1){
@@ -41,7 +40,7 @@ function _onConnect(ClientSession $session){
     //we really shouldn't need the recordExists check, but here for extra safety.
     if(!$playedClass::recordExists($file->UID,$requestObj->requestDate)){
       $modelId = strtolower($targetModel->label) . 'Id';
-      $played = Factory::createModel($playedClass::TABLE);
+      $played = \LOE\Factory::createModel($playedClass::TABLE);
       $played->$modelId = $file->UID;
       $played->playDate = $requestObj->requestDate;
       $played->ipAddress = $requestObj->ip_address;
