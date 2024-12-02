@@ -9,7 +9,7 @@ use Thruway\Transport\PawlTransportProvider;
 use LOE;
 
 function _buildSearchStr($query){
-  return Base::WEBROOT . "/LOE" . preg_replace("/%20/"," ",$query)
+  return Base::WEBROOT . "/LOE" . preg_replace("/%20/"," ",$query);
 }
 
 function _onConnect(ClientSession $session){
