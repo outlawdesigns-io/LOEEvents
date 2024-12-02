@@ -1,4 +1,4 @@
-FROM php:8.2
+FROM php:8.2-cli
 RUN docker-php-ext-install mysqli
 # Install dependencies required for Composer
 RUN apt-get update && apt-get install -y \
@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
 
 # Copy Composer from the official Composer image
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY . /usr/src/app
+WORKDIR /usr/src/app
 RUN php /usr/local/bin/composer require voryx/thruway
 RUN php /usr/local/bin/composer require thruway/pawl-transport
-ADD ./ /var/www/html
+CMD ["php", "./index.php"]
