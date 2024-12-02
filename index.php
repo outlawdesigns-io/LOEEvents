@@ -20,6 +20,6 @@ $wampUrl = 'wss://api.outlawdesigns.io:9700';
 $wampClient = new Client($realm);
 $wampClient->addTransportProvider(new PawlTransportProvider($wampUrl));
 
-$wampClient->on('open',_onConnect);
+$wampClient->on('open','_onConnect');
 
 $client->start();
