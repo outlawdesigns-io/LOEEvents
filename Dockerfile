@@ -1,5 +1,6 @@
 FROM php:8.2-cli
 RUN docker-php-ext-install mysqli
+RUN echo "date.timezone = America/Chicago" > /usr/local/etc/php/conf.d/timezone.ini
 # Install dependencies required for Composer
 RUN apt-get update && apt-get install -y \
     git \

@@ -42,10 +42,10 @@ function _onConnect(ClientSession $session){
       $modelId = strtolower($targetModel->label) . 'Id';
       $played = \LOE\Factory::createModel($playedClass::TABLE);
       $played->$modelId = $file->UID;
-      $played->playDate = $requestObj->requestDate;
+      $played->playDate = date('Y-m-d H:i:s',strtotime($requestObj->requestDate));
       $played->ipAddress = $requestObj->ip_address;
-      //$played->create();
-      print_r($played);
+      $played->create();
+      //print_r($played);
     }
   };
   $session->subscribe('io.outlawdesigns.webaccess.fileDownloaded',$onFileDownloaded);
