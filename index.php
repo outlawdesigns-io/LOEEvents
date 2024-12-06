@@ -46,7 +46,7 @@ $onFileDownloaded = function($args, ClientSession $session){
     $played->create();
     $session->publish('io.outlawdesigns.loe.' . strtolower($modelLabel) . '.played',array($played,$file));
   }
-}
+};
 
 $onConnect = function(ClientSession $session) use ($onFileDownloaded){
   echo "Connected to WAMP router...\n";
