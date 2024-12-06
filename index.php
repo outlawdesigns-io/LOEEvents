@@ -53,7 +53,7 @@ $onConnect = function(ClientSession $session) use ($onFileDownloaded){
   $session->subscribe('io.outlawdesigns.webaccess.fileDownloaded',function($args) use ($onFileDownloaded,$session){
     $onFileDownloaded($args,$session);
   });
-}
+};
 
 $realm = 'realm1';
 $wampUrl = 'wss://api.outlawdesigns.io:9700/ws';
