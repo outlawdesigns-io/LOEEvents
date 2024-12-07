@@ -44,7 +44,7 @@ $onFileDownloaded = function($args, ClientSession $session){
     $played->ipAddress = $requestObj->ip_address;
     //print_r($played);
     $played->create();
-    $session->publish('io.outlawdesigns.loe.' . strtolower($modelLabel) . '.played',array($played,$file));
+    $session->publish('io.outlawdesigns.loe.' . strtolower($targetModel->label) . '.played',array($played,$file));
   }
 };
 
