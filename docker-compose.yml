@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  wampclient:
+    image: loe-events
+    build:
+      context: $DOCKER_BUILD_DIR/LOEEvents/
+      dockerfile: $DOCKER_BUILD_DIR/LOEEvents/Dockerfile
+    environment:
+      - MYSQL_HOST=$DOCKER_MYSQL_HOST
+      - MYSQL_USER=$DOCKER_MYSQL_USER
+      - MYSQL_PASSWORD=$DOCKER_MYSQL_PASS
